@@ -1,5 +1,5 @@
-#include "components/example/example.h"
-#include "components/move_me_out/move_me_out.h"
+#include "example.h"
+#include "move_me_out.h"
 
 #include <iostream>
 
