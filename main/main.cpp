@@ -1,5 +1,11 @@
 #include "main.hpp"
 int main (int argc, char *argv[]){
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
+
     for (int i=0; i<argc; i++){
         std::cout<<argv[i]<<std::endl;
     }
