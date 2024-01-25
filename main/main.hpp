@@ -4,5 +4,6 @@
 #include <iostream>
 
 #include "players_name.hpp"
+#include "game_control.hpp"
 
 #endif

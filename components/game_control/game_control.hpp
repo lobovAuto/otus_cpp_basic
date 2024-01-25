@@ -1,0 +1,52 @@
+#ifndef GAME_CONTROL_HPP
+#define GAME_CONTROL_HPP
+
+#include <iostream>
+#include "game.hpp"
+
+/**
+Игра-
+    |-Знакомство --
+    |              |-Ввод имени
+    |              |-Вывод результата, если имеется
+    |              |-Вывод таблицы результатов
+    |              |-Предложение сыграть в игру --- Выбор уровня, если не был указан при запуске приложения
+    |-Игра --------
+    |              |-Начало игры в зависимости от выбора уровня
+    |              |-Игра до конца, либо до выхода из игры.
+    |                   Если до конца, то вывод результата и таблицы результатов
+    |-Игровое меню-
+    |              |-Ввод данных -
+    |                               |-Смена имени
+    |                               |-Выход из игры
+    |                               |-Смена уровня
+    |                               |-Начало новой игры
+*/
+enum class GameState{
+    acquaint_en = 0,
+    game_en = 1,
+    lobby_en = 2,
+};
+
+//typedef void * (*FuncPtr)();
+
+class GameControl {
+private:
+    GameState state;
+    unsigned int level;
+    bool is_prestart_level;
+
+    GuessNumberGame game;
+
+    GameState Acquaint();
+    GameState Game ();
+    GameState Lobby ();
+    unsigned int return_level(){return level;};
+public:
+    GameControl(unsigned int in_level=0,bool presel_level=false, GameState input_state = GameState::acquaint_en ) : 
+                is_prestart_level(presel_level), state(input_state), 
+                level(in_level), game(0,false) {
+    }
+    int process();
+};
+#endif
