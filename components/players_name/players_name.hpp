@@ -23,13 +23,21 @@ enum class ErrorType{
 class pname {
     private:
     std::string name;
+    unsigned int result;
     ErrType err_type=ErrorType::no_err;
     public:
     pname(const std::string name_in){
         std::string temp(name_in);
         name = name_in;
+    };
+    pname(const std::string name_in, unsigned int attempts):result(attempts){
+        std::string temp(name_in);
+        name = name_in;
     }
     bool process();
+    std::string get_name (){return name;};
+    unsigned int get_result (){return result;};
+    bool name_compare(std::string);
 };
 
 #endif

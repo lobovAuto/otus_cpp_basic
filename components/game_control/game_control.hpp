@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include "game.hpp"
+#include "players_name.hpp"
+#include "result.hpp"
 
 /**
 Игра-
@@ -26,6 +28,7 @@ enum class GameState{
     acquaint_en = 0,
     game_en = 1,
     lobby_en = 2,
+    exit_en = 3,
 };
 
 //typedef void * (*FuncPtr)();
@@ -35,18 +38,23 @@ private:
     GameState state;
     unsigned int level;
     bool is_prestart_level;
+    bool is_exit;
 
-    GuessNumberGame game;
+    GuessNumberGame * game;
+    result_table * table;
 
     GameState Acquaint();
     GameState Game ();
     GameState Lobby ();
     unsigned int return_level(){return level;};
+    void clear_screen ();
+    
 public:
     GameControl(unsigned int in_level=0,bool presel_level=false, GameState input_state = GameState::acquaint_en ) : 
                 is_prestart_level(presel_level), state(input_state), 
-                level(in_level), game(0,false) {
+                level(in_level), is_exit(0){
     }
     int process();
+    bool exit(){return is_exit;};
 };
 #endif

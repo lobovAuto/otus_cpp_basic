@@ -10,6 +10,7 @@ add_executable( ${TARGET_NAME}
     components/result/result.cpp
     components/players_name/players_name.cpp
     components/args/args.cpp
+    components/game/game.cpp
 )
 
 set_target_properties(${TARGET_NAME} PROPERTIES
@@ -27,3 +28,9 @@ set(INCLUDES
 
 target_include_directories(${TARGET_NAME} PRIVATE ${INCLUDES}
 )
+
+add_custom_target(copyBaseRes
+    COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/result ${CMAKE_BINARY_DIR}/result
+)
+
+add_dependencies(${TARGET_NAME} copyBaseRes)

@@ -11,3 +11,11 @@ bool pname::process(){
     }
     return true;
 }
+
+bool pname::name_compare(std::string in){
+    if (name==in){
+        return true;
+    } else {
+        return false;
+    }
+}

@@ -1,33 +1,26 @@
 #include "main.hpp"
 
-void clear_screen (){
-    #ifdef _WIN32
-        system("cls");
-    #else
-        system("clear");
-    #endif
-}
+
 int main (int argc, char *argv[]){
-    
-    clear_screen();
 
     for (int i=0; i<argc; i++){
         std::cout<<argv[i]<<std::endl;
     }
 
-
-
-    std::cout<<"Введите имя игорька. Имя должно быть не длиннее "<<NAME_LENGTH<<"символов, и не должно содержать пробелов."<<std::endl;
-    std::cout<<"Имя: ";
-    std::string input_name;
-    std::getline(std::cin,input_name);
+    /*
+    result_table table;
+    table.print_table();
+    std::cout<<std::endl;
+    table.sort_table();
+    //table.print_table();
+    std::cout<< table.get_best_result("ыва")<<std::endl;
+    */
     
-    pname name(input_name);
-    std::cout<<name.process()<<std::endl;
-
     GameControl game_process(1);
-    game_process.process();
-    game_process.process();
+    while (true){
+        game_process.process();
+        if (game_process.exit()){break;}
+    }
     
 
     //Приветствие

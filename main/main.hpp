@@ -5,5 +5,6 @@
 
 #include "players_name.hpp"
 #include "game_control.hpp"
+#include "result.hpp"
 
 #endif
