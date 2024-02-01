@@ -89,7 +89,7 @@ GameState GameControl::Game(){
         name->set_result(game->return_attempts());
         table->add_result(name);
         delete game;
-        //delete name;
+        delete name;
         return GameState::lobby_en;
         break;
     case ReturnType::bad_number:
@@ -101,6 +101,7 @@ GameState GameControl::Game(){
 
 GameState GameControl::Lobby(){
     table->print_table();
+    table->result_export();
     if (game_req()){
         start_game_manual();
         return GameState::game_en;

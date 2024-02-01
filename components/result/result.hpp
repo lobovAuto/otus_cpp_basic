@@ -26,6 +26,7 @@ result_table (){
         //std::cout<<"name is "<<name<<std::endl;
         //std::cout<<"attempts is "<<int_attempt<<std::endl;
     }
+    result.close();
 };
 void print_table();
 void sort_table();
