@@ -51,24 +51,13 @@ void result_table::add_result(pname * input){
 }
 
 void result_table::result_export(){
-    /*
+    
     std::vector<pname>::iterator it = table.begin();
-    for (int i=0; i<table.size(); i++){
-        if (i<9){std::cout<<"0";}
-        std::cout<<i+1<<" | ";
-        std::cout<<it->get_name();
-        std::cout<<" | Результат: "<<it->get_result()<<std::endl;
-        it++;
-    }
-    */
-    it = table.begin();
     std::ofstream result("result");
-    std::cout<<"size "<<table.size()<<std::endl;
+
     for (int i=0; i<table.size();i++){
-        std::string test=it->get_name();
-        std::cout<<it->get_name()<<" "<<it->get_result()<<std::endl;
-        result<<test<<" "<<it->get_result()<<std::endl;
-        i++;
+        result<<it->get_name()<<" "<<it->get_result()<<std::endl;
+        it++;
     }
     result.close();
 }
