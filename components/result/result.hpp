@@ -31,4 +31,5 @@ void print_table();
 void sort_table();
 unsigned int get_best_result(std::string);
 void add_result(pname *);
+void result_export();
 };
