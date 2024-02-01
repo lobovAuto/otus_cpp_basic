@@ -37,6 +37,7 @@ class pname {
     bool process();
     std::string get_name (){return name;};
     unsigned int get_result (){return result;};
+    void set_result(unsigned int input){result=input;};
     bool name_compare(std::string);
 };
 

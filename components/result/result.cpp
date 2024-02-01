@@ -33,13 +33,19 @@ void result_table::sort_table(){
 }
 
 unsigned int result_table::get_best_result(std::string name){
-    unsigned int best_res=0;
+    unsigned int best_res=__INT_MAX__;
     std::vector<pname>::iterator it = table.begin();
     for (int i=0; i<table.size(); i++){
         if (it->name_compare(name)){
-            if (best_res<(it->get_result())){best_res=(it->get_result());}    
+            if (best_res>(it->get_result())){best_res=(it->get_result());}    
         }
         it++;
     }
+    if (best_res==__INT_MAX__){best_res=0;}
     return best_res;
+}
+
+void result_table::add_result(pname * input){
+    table.push_back(*input);
+    sort_table();
 }

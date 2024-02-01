@@ -42,13 +42,15 @@ private:
 
     GuessNumberGame * game;
     result_table * table;
+    pname * name;
 
     GameState Acquaint();
     GameState Game ();
     GameState Lobby ();
+    bool game_req();
     unsigned int return_level(){return level;};
     void clear_screen ();
-    
+    void start_game_manual();
 public:
     GameControl(unsigned int in_level=0,bool presel_level=false, GameState input_state = GameState::acquaint_en ) : 
                 is_prestart_level(presel_level), state(input_state), 
