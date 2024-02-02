@@ -24,6 +24,7 @@ set(INCLUDES
     ./components/players_name 
     ./components/game_control
     ./components/args
+    ./components/help
 )
 
 target_include_directories(${TARGET_NAME} PRIVATE ${INCLUDES}

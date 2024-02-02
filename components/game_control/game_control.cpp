@@ -41,7 +41,7 @@ void GameControl::start_game_manual(){
 }
 
 GameState GameControl::Acquaint(){
-    clear_screen();
+    //clear_screen();
     std::cout<<"Введите имя игорька. Имя должно быть не длиннее "<<NAME_LENGTH<<" символов, и не должно содержать пробелов."<<std::endl;
     std::cout<<"Имя: ";
     std::string input_name;             //переменная для имени
@@ -60,8 +60,10 @@ GameState GameControl::Acquaint(){
     if (!game_req()){
         return GameState::game_en;
     }
+    
     if (is_prestart_level){
-    //Тут логика на случай, если программа запущена с параметром уровня
+        game = new GuessNumberGame(level, true);//Тут логика на случай, если программа запущена с параметром уровня
+        std::cout<<"Число загадано! Начинаем отгадывать"<<std::endl;
     }else {
         start_game_manual();
     }
@@ -88,8 +90,8 @@ GameState GameControl::Game(){
         std::cout<<"Ваш счет: "<<game->return_attempts()<<std::endl;
         name->set_result(game->return_attempts());
         table->add_result(name);
-        delete game;
-        delete name;
+        //delete game;
+        //delete name;
         return GameState::lobby_en;
         break;
     case ReturnType::bad_number:

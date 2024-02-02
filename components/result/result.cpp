@@ -20,6 +20,7 @@ void result_table::print_table(){
          * Нужна помощь!
          * Узнал, что size возвращает не длину посимволно, а размер в байтах
          * Не понял, как узнать длину одного символа в строке в текущей системе
+         * Вероятно, отсюда же проблема с выравниваем таблицы при вводе английского имени
         */
         for (int j=0; j<delta; j++){std::cout<<" ";}
         std::cout<<" | Результат: "<<it->get_result()<<std::endl;
@@ -56,7 +57,8 @@ void result_table::result_export(){
     std::ofstream result("result");
 
     for (int i=0; i<table.size();i++){
-        result<<it->get_name()<<" "<<it->get_result()<<std::endl;
+        if (i!=0){result<<std::endl;}
+        result<<it->get_name()<<" "<<it->get_result();
         it++;
     }
     result.close();
