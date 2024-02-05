@@ -2,9 +2,9 @@
 
 void GameControl::clear_screen(){
     #ifdef _WIN32
-        system("cls");
+        std::cout <<"\x1B[2J\x1B[H";
     #else
-        system("clear");
+        std::cout <<"\x1B[2J\x1B[H";
     #endif
 }
 
@@ -41,7 +41,7 @@ void GameControl::start_game_manual(){
 }
 
 GameState GameControl::Acquaint(){
-    //clear_screen();
+    clear_screen();
     std::cout<<"Введите имя игорька. Имя должно быть не длиннее "<<NAME_LENGTH<<" символов, и не должно содержать пробелов."<<std::endl;
     std::cout<<"Имя: ";
     std::string input_name;             //переменная для имени

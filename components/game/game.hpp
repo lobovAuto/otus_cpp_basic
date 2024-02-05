@@ -13,7 +13,7 @@ enum class ReturnType{
 };
 class GuessNumberGame {
 private:
-    bool check_number(unsigned int);
+    bool check_number(unsigned int in){return !(in>base_number);}
     unsigned int hidden_number;
     unsigned int base_number;
     unsigned int attempts;
@@ -21,7 +21,7 @@ private:
     
 public:
     GuessNumberGame(unsigned int game_level=100, bool manual=0):level(game_level),attempts(0){
-        std::srand(std::time(nullptr));
+        std::srand((unsigned int)std::time(nullptr));
         if (manual){
             base_number = game_level;
             hidden_number = std::rand() % game_level;

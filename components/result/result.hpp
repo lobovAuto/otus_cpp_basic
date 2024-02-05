@@ -5,6 +5,7 @@
 #include <fstream>
 #include <iostream>
 #include <algorithm>
+#include <limits>
 class result_table {
 private:
     std::vector <pname> table;

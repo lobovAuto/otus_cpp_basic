@@ -2,7 +2,7 @@
 
 
 int main (int argc, char *argv[]){
-
+    std::setlocale(LC_ALL, "Utf8");
     args_orchestrator input_args(argc, argv);
 
     if (input_args.check_arg("help")){ // Вывод справки

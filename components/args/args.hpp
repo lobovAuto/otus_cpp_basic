@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
-#include <algorithm>
+#include <string>
 
 class arg{
 private:
@@ -12,10 +12,7 @@ public:
         name = temp;
     };
     std::string get_name(){return name;};
-    bool is_match(std::string in){
-        if (in==name){return true;}
-        return false;
-    };
+    bool is_match(std::string in){return (in==name);};
 };
 
 class arg_with_parm{
@@ -29,10 +26,7 @@ public:
     };
     std::string get_name(){return name;};
     unsigned int get_value(){return value;};
-    bool is_match(std::string in){
-        if (in==name){return true;}
-        return false;
-    };
+    bool is_match(std::string in){return (in==name);};
 };
 
 class args_orchestrator{

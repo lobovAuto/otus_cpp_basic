@@ -1,11 +1,5 @@
 #include "game.hpp"
 
-bool GuessNumberGame::check_number(unsigned int in){
-    if (in>base_number){
-        return false;
-    }
-    return true;
-}
 
 void GuessNumberGame::set_level(unsigned int){
     

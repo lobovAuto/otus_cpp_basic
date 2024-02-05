@@ -18,6 +18,8 @@ set_target_properties(${TARGET_NAME} PROPERTIES
     CXX_STANDARD_REQUIRED ON
 )
 
+set(COMP_FLAGS -W -Wconversion)
+
 set(INCLUDES
     ./components/game
     ./components/result
@@ -28,6 +30,9 @@ set(INCLUDES
 )
 
 target_include_directories(${TARGET_NAME} PRIVATE ${INCLUDES}
+)
+
+target_compile_options (${TARGET_NAME} PRIVATE ${COMP_FLAGS}
 )
 
 add_custom_target(copyBaseRes
